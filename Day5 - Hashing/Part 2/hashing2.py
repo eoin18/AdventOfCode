@@ -9,7 +9,7 @@ def has_spaces(password):
     return ' ' in password
 
 def main():
-    password = [" ", " ", " ", " ", " ", " "," "," "]
+    password = [" ", " ", " ", " ", " ", " ", " ", " "]
     i = 0
     while has_spaces(password):
         input_with_integer = INPUT + str(i)
@@ -28,3 +28,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
