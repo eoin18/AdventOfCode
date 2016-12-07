@@ -17,21 +17,21 @@ def hypernet_contains_abba(line):
             return True
     return False
 
-def ip_contains_abba(line):
-    internal_sequences = []
-    internal_sequences.append(line.split('[')[0])
-    internal_sequences.append(line.split(']')[-1])
-    internal_sequences.extend(re.findall("(\][a-z]*\[)", line))
-    for internal_sequence in internal_sequences:
-        internal_sequence = internal_sequence.replace(']', '').replace('[', '').replace('\n', '')
-        if contains_abba(internal_sequence):
+def supernet_contains_abba(line):
+    supernet_sequences = []
+    supernet_sequences.append(line.split('[')[0])
+    supernet_sequences.append(line.split(']')[-1])
+    supernet_sequences.extend(re.findall("(\][a-z]*\[)", line))
+    for supernet_sequence in supernet_sequences:
+        supernet_sequence = supernet_sequence.replace(']', '').replace('[', '').replace('\n', '')
+        if contains_abba(supernet_sequence):
             return True
     return False
 
 def supports_tls(line):
-    ip_abba = ip_contains_abba(line)
+    supernet_abba = supernet_contains_abba(line)
     hypernet_abba = hypernet_contains_abba(line)
-    return ip_abba and not hypernet_abba
+    return supernet_abba and not hypernet_abba
 
 def main():
     abba_addresses = 0
