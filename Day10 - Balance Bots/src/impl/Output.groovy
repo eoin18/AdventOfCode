@@ -13,11 +13,19 @@ class Output {
         this.chips = new ArrayList<>()
     }
 
-    Integer getValue() {
-        return this.value
-    }
-
     void addChip(Chip chip){
         this.chips.add(chip)
+    }
+
+    @Override
+    String toString() {
+        StringBuilder builder = new StringBuilder("Output ")
+            .append(value)
+            .append(" contains chips :")
+        for (Chip chip : chips) {
+            builder.append(chip)
+                .append(", ")
+        }
+        return builder.toString()
     }
 }

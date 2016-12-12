@@ -74,10 +74,11 @@ class CommandExecutor {
         }
     }
 
-    Bot getBotComparing(int i, int j) {
+    Bot getBotComparing(int low, int high) {
+        Comparison comparison = new Comparison(Integer.valueOf(high), Integer.valueOf(low))
         this.bots.values().stream().filter({
-            b -> b.getChips().stream().allMatch({
-                c -> c.getValue() == Integer.valueOf(i) || c.getValue() == Integer.valueOf(j)
+            b -> b.getComparisonsPerformedByBot().stream().anyMatch({
+                c -> c.equals(comparison)
             })
         }).collect(Collectors.toList()).get(0)
     }

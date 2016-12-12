@@ -18,7 +18,7 @@ class Instruction {
     }
 
     void execute(){
-        System.println("executing " + this.highTarget.toString() + " and " + this.lowTarget.toString())
+        System.println("Bot "+ source + " executing " + this.highTarget.toString() + " and " + this.lowTarget.toString())
         this.commandExecutor.execute(this)
     }
 

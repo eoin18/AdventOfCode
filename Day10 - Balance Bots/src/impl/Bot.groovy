@@ -8,6 +8,7 @@ class Bot {
     SortedSet<Chip> chips
     Instruction command
     Integer value
+    List<Comparison> comparisons
 
     Bot(Integer value) {
         this.chips = new TreeSet<>(new Comparator<Chip>() {
@@ -16,6 +17,7 @@ class Bot {
                 return o1.getValue().compareTo(o2.getValue())
             }
         })
+        this.comparisons = new ArrayList<>()
         this.value = value
     }
 
@@ -38,14 +40,23 @@ class Bot {
     void maybeExecuteCommand(){
         if(this.chips.size() == 2 && this.command != null){
             Iterator<Chip> iterator = this.chips.iterator()
-            this.command.getLowTarget().setChip(iterator.next().getValue())
-            this.command.getHighTarget().setChip(iterator.next().getValue())
+            Integer low = iterator.next().getValue()
+            Integer high = iterator.next().getValue()
+
+            this.comparisons.add(new Comparison(high, low))
+
+            this.command.getLowTarget().setChip(low)
+            this.command.getHighTarget().setChip(high)
             this.command.execute()
         }
     }
 
     Integer getValue() {
         return this.value
+    }
+
+    List<Comparison> getComparisonsPerformedByBot(){
+        this.comparisons
     }
 
 }

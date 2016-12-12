@@ -34,6 +34,6 @@ class Target {
 
     @Override
     String toString() {
-        String.format("Moving chip %s to %s %s ", getChip(), getTargets(), getTargetId())
+        String.format("moving chip %s to %s %s ", getChip(), getTargets(), getTargetId())
     }
 }

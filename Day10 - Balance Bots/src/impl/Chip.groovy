@@ -20,4 +20,9 @@ class Chip {
         Chip other = obj as Chip
         return this.value.equals(other.value)
     }
+
+    @Override
+    String toString() {
+        return "Chip " + value
+    }
 }

@@ -2,6 +2,7 @@ package main
 
 import impl.Bot
 import impl.CommandExecutor
+import impl.Output
 import impl.Parser
 
 /**
@@ -9,7 +10,7 @@ import impl.Parser
  */
 class BotsMain {
 
-    static String inputFile = "/Users/eoin/Documents/AdventOfCode/Day10 - Balance Bots/resources/input.txt"
+    static String inputFile = "D:\\Git\\AdventOfCode\\Day10 - Balance Bots\\resources\\input.txt"
 
      static void main(String[] args) {
         CommandExecutor executor = new CommandExecutor()
@@ -20,9 +21,15 @@ class BotsMain {
                 executor.instruct(parser.parse(line))
         }
 
-         Bot result = executor.getBotComparing(5, 2)
+         Bot result = executor.getBotComparing(17, 61)
 
          System.out.println(result.getValue())
+
+         Collection<Output> outputs = executor.getOutputs().values()
+
+         for (Output output : outputs) {
+             System.out.println(output)
+         }
 
     }
 }
