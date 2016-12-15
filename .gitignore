@@ -2,3 +2,7 @@
 .idea/*
 *.iml
 target/*
+gradlew*
+.gradle/
+gradle/
+*/build/*

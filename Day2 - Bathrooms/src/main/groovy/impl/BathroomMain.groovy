@@ -1,7 +1,5 @@
 package impl
 
-import org.apache.tools.ant.filters.StringInputStream
-
 /**
  * Created by emccarthy on 02/12/2016.
  */
